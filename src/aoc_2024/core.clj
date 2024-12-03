@@ -1,6 +1,9 @@
-(ns aoc-2024.core)
+(ns aoc-2024.core
+  (:require [aoc-2024.day1 :as day1]))
 
-(defn foo
-  "I don't do a whole lot."
-  [x]
-  (println x "Hello, World!"))
+(defn day1 []
+  ""
+  (let [oneStarResult (day1/oneStar)
+        twoStarResult (day1/twoStar)]
+    (println (str "First Star:  " oneStarResult))
+    (println (str "Second Star: " twoStarResult))))
