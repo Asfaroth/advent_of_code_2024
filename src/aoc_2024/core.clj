@@ -1,7 +1,8 @@
 (ns aoc-2024.core
   (:require [aoc-2024.day1 :as day1]
             [aoc-2024.day2 :as day2]
-            [aoc-2024.day3 :as day3]))
+            [aoc-2024.day3 :as day3]
+            [aoc-2024.day4 :as day4]))
 
 (defn printResults
   [first second]
@@ -16,3 +17,6 @@
 
 (defn day3 []
   (printResults (day3/oneStar) (day3/twoStar)))
+
+(defn day4 []
+  (printResults (day4/oneStar) (day4/twoStar)))

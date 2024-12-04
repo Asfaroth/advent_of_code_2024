@@ -10,7 +10,8 @@
   [file]
   (slurp file))
 
-(defn drop-nth [n coll]
+(defn drop-nth
+  [n coll]
   (concat
    (take n coll)
    (drop (inc n) coll)))
