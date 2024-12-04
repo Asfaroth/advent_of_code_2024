@@ -6,6 +6,10 @@
   [file]
   (str/split (slurp file) #"\n"))
 
+(defn readInput
+  [file]
+  (slurp file))
+
 (defn drop-nth [n coll]
   (concat
    (take n coll)
