@@ -5,3 +5,8 @@
   "Reads the file at the given path and returns the contents as list of strings splitted line by line."
   [file]
   (str/split (slurp file) #"\n"))
+
+(defn drop-nth [n coll]
+  (concat
+   (take n coll)
+   (drop (inc n) coll)))
