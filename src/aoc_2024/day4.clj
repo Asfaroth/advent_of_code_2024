@@ -15,12 +15,14 @@
 (defn oneStar []
   (let [horizontal (reduce + (map countOccurences (matrix/rows inputMatrix)))
         vertical (reduce + (map countOccurences (matrix/columns inputMatrix)))
-        upperDiagonals (reduce + (map #(countOccurences (matrix/diagonal inputMatrix %)) (range (matrix/column-count inputMatrix))))
-        lowerDiagonals (reduce + (map #(countOccurences (matrix/diagonal inputMatrix (* % -1))) (range 1 (matrix/row-count inputMatrix))))
-        upperReverseDiagonals (reduce + (map #(countOccurences (matrix/diagonal reverseInputMatrix %)) (range (matrix/column-count reverseInputMatrix))))
-        lowerReverseDiagonals (reduce + (map #(countOccurences (matrix/diagonal reverseInputMatrix (* % -1))) (range 1 (matrix/row-count reverseInputMatrix))))]
-    (println [horizontal vertical upperDiagonals lowerDiagonals upperReverseDiagonals lowerReverseDiagonals])
-    (+ horizontal vertical upperDiagonals lowerDiagonals upperReverseDiagonals lowerReverseDiagonals)))
+        diagonals (reduce + (map
+                             #(countOccurences (matrix/diagonal inputMatrix %))
+                             (range (* (matrix/row-count inputMatrix) -1) (matrix/column-count inputMatrix))))
+        reverseDiagonals (reduce + (map
+                                    #(countOccurences (matrix/diagonal reverseInputMatrix %))
+                                    (range (* (matrix/row-count reverseInputMatrix) -1) (matrix/column-count reverseInputMatrix))))]
+    (println [horizontal vertical diagonals reverseDiagonals])
+    (+ horizontal vertical diagonals reverseDiagonals)))
 
 (defn twoStar []
   0)
