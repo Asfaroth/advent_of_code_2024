@@ -15,3 +15,7 @@
   (concat
    (take n coll)
    (drop (inc n) coll)))
+
+(defn middle-value [coll]
+  (when-not (empty? coll)
+    (nth coll (quot (count coll) 2))))
